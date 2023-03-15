@@ -1,0 +1,29 @@
+HEADER
+-logga
+-Styling
+
+BILDSPEL
+-Implement
+-Styling
+
+CONTACT
+-Styling
+
+BODY
+-Separator -----MENU/CONTACT/WILKOMMEN-----
+
+FOOTER
+-abouts/Privacy
+-Styling
+
+GENERAL STYLING
+-Font
+
+ADMIN PAGE
+-Update menu
+-Less hardcoded stuff, more inside DB
+
+GIT
+
+TA BORT UNUSED STUFF
+KOD GRANSKA

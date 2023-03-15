@@ -1,0 +1,103 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Hammarby Pizzeria - Där kvalité avgör.";
+}
+
+<div class="text-center">
+
+    <div id="start">
+
+    </div>
+
+    <div id="menu">
+        <h2>MENY</h2>
+        <h3 id ="menuPizza">Pizza</h3>
+        <div class="menu">
+            @foreach( var menuItem in Model.MenuItems ) {
+                    if( menuItem.category == Models.menuItemCategory.pizza ) {
+                        <div class="menu-item">
+                            <div class="menu-item-number">@menuItem.number.</div>
+                            <div class="menu-item-name">@menuItem.name</div>
+                            <div class="menu-item-price">@menuItem.price:-</div>
+                            <div class="menu-item-description">@menuItem.description</div>
+                        </div>
+                    }
+            }
+        </div>
+
+        <h3 id="menuMozzarellaPizza">Mozzarellapizza</h3>
+        <div class="menu">
+            @foreach( var menuItem in Model.MenuItems ) {
+                if( menuItem.category == Models.menuItemCategory.mozzarellapizza ) {
+                    <div class="menu-item">
+                        <div class="menu-item-number">@menuItem.number.</div>
+                        <div class="menu-item-name">@menuItem.name</div>
+                        <div class="menu-item-price">@menuItem.price:-</div>
+                        <div class="menu-item-description">@menuItem.description</div>
+                    </div>
+                }
+            }
+        </div>
+
+        <h3 id ="menuSallad">Sallad</h3>
+        <div class="menu">
+            @foreach( var menuItem in Model.MenuItems ) {
+                if( menuItem.category == Models.menuItemCategory.sallad ) {
+                    <div class="menu-item">
+                        <div class="menu-item-number">@menuItem.number.</div>
+                        <div class="menu-item-name">@menuItem.name</div>
+                        <div class="menu-item-price">@menuItem.price:-</div>
+                        <div class="menu-item-description">@menuItem.description</div>
+                    </div>
+                }
+            }
+        </div>
+
+        <h3 id="menuMisc">Övrigt</h3>
+        <div class="menu">
+            @foreach( var menuItem in Model.MenuItems ) {
+                if( menuItem.category == Models.menuItemCategory.other ) {
+                    <div class="menu-item">
+                        <div class="menu-item-number">@menuItem.number.</div>
+                        <div class="menu-item-name">@menuItem.name</div>
+                        <div class="menu-item-price">@menuItem.price:-</div>
+                        <div class="menu-item-description">@menuItem.description</div>
+                    </div>
+                }
+            }
+        </div>
+
+        <h3 id="menuLunch">Lunch</h3>
+        <div class="lunch">
+            @foreach( var menuItem in Model.MenuItems ) {
+                if( menuItem.category == Models.menuItemCategory.lunch ) {
+                    <div class="menu-item">
+                        <div class="menu-item-number"></div>
+                        <div class="menu-item-name">@menuItem.name</div>
+                        <div class="menu-item-price">@menuItem.price:-</div>
+                        <div class="menu-item-description">@menuItem.description</div>
+                    </div>
+                }
+            }
+        </div>
+    </div>
+
+    <div id="contact">
+        <h2>Hitta oss!</h2>
+        <div class="Contact">
+            <h3>Öppettider</h3>
+            <p>Alla dagar mellan klockan 10 - 22</p>
+            <h3>Telefonnummer</h3>
+            <p>08-64 90 200</p>
+            <h3>Adress</h3>
+            <p>Finn Malmgrens plan 5-7</p>
+            <p>121 38</p>
+            <p>Johanneshov</p>
+        </div>
+        <div id="map" class="googlemap">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1018.6210413224743!2d18.100482270870252!3d59.295514050301186!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x465f783db984798f%3A0x1c541e53e3402b1a!2sHammarby%20Pizzeria!5e0!3m2!1sen!2sse!4v1678826594480!5m2!1sen!2sse" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+    </div>
+
+</div>

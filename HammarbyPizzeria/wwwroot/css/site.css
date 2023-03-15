@@ -1,0 +1,148 @@
+html {
+  font-size: 16px;
+}
+
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 999;
+}
+
+body {
+    margin-bottom: 65px;
+    padding-top:100px;
+    padding-bottom: 100px; /* adjust as needed */
+    background: linear-gradient(0.25turn, lightseagreen, white 10% 90%, lightseagreen );
+}
+
+.footer-style {
+    background-color:white;
+}
+
+h3 {
+    padding-top:60px; /*For spacing so the header doesn't cover*/
+    text-align: left;
+    margin-top: 20px;
+    margin-left: 20px;
+}
+
+.menu {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    grid-gap: 10px;
+    padding: 20px;
+}
+
+.lunch {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    grid-gap: 10px;
+    padding: 20px;
+}
+
+.menu-item {
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    grid-template-rows: auto auto;
+    grid-column-gap: 10px;
+    grid-row-gap: 5px;
+    padding: 10px;
+    background-color: white;
+    border: 2px solid #ccc;
+    border-color: lawngreen;
+    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.menu-item-number {
+    grid-column: 1 / span 1;
+    grid-row: 1 / span 1;
+    text-align: left;
+    font-weight: bold;
+}
+
+.menu-item-name {
+    grid-column: 2 / span 1;
+    grid-row: 1 / span 1;
+    text-align: left;
+    font-weight: bold;
+}
+
+.menu-item-price {
+    grid-column: 3 / span 1;
+    grid-row: 1 / span 1;
+    text-align: right;
+    font-weight: bold;
+}
+
+.menu-item-description {
+    grid-column: 2 / span 2;
+    grid-row: 2 / span 1;
+    font-size: 0.8em;
+    text-align: left;
+    color: #777;
+}
+
+.phone-button {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: #fff;
+    color: #fff;
+    width: 125px;
+    height: 125px;
+    border: 3px solid;
+    border-color: lawngreen;
+    border-radius: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    text-align: center;
+    text-decoration: none;
+    box-shadow: -2px 5px 5px rgba(0, 0, 0, 0.3);
+    z-index: 999;
+}
+
+.phone-button-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+    .phone-button-content span {
+        display: block; /* make each span element a block element */
+        font-family: Arial, sans-serif;
+        font-weight: bold; /* make the text bold */
+        color: lawngreen; /* change the text color to green */
+    }
+
+        .phone-button-content span:first-child {
+            margin-top: 0;
+            padding-top: 5px;
+            padding-bottom: 5px;
+        }
+
+        .phone-button-content span:last-child {
+            margin-bottom: 0;
+            padding-top: 5px;
+            padding-bottom: 5px;
+        }
+
+    .phone-button-content img {
+        width: 30px;
+        height: 30px;
+        margin: 0 auto;
+    }
+
+.phone-button:hover {
+    background-color: #555;
+}

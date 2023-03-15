@@ -1,0 +1,116 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - Hammarby Pizzeria</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/HammarbyPizzeria.styles.css" asp-append-version="true" />
+</head>
+<body>
+    <header>
+        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light avbar-fixed-top bg-white border-bottom box-shadow mb-3">
+            <div class="container">
+                <a class="navbar-brand" asp-area="" asp-page="/Index">HammarbyPizzeria</a>
+                
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
+                    <ul class="navbar-nav">
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#menu" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                Meny
+                            </a>
+                            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <li><a class="dropdown-item" href="#menuPizza">Pizza</a></li>
+                                <li><a class="dropdown-item" href="#menuMozzarellaPizza">Mozzarellapizza</a></li>
+                                <li><a class="dropdown-item" href="#menuSallad">Sallad</a></li>
+                                <li><a class="dropdown-item" href="#menuMisc">Övrigt</a></li>
+                                <li><a class="dropdown-item" href="#menuLunch">Lunch</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#contact" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                Hitta Oss
+                            </a>
+                            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <li><a class="dropdown-item" href="#contact">Adress</a></li>
+                                <li><a class="dropdown-item" href="#map">Karta</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#contact" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                Om Oss
+                            </a>
+                            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <li><a class="dropdown-item" href="#contact">Adress</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+    </header>
+    <div class="container">
+        <main role="main" class="pb-3">
+            @RenderBody()
+        </main>
+    </div>
+
+    @{
+        var storeTimeZone = TimeZoneInfo.FindSystemTimeZoneById( "Europe/Stockholm" );
+        var currentTime = TimeZoneInfo.ConvertTime( DateTime.UtcNow, storeTimeZone );
+
+        var openingTime = new TimeSpan( 10, 0, 0 );
+        var closingTime = new TimeSpan( 22, 0, 0 );
+
+        bool storeOpen = currentTime.TimeOfDay >= openingTime && currentTime.TimeOfDay <= closingTime;
+    }
+
+    @if( storeOpen ) {
+        <a href="tel:086490200" class="phone-button">
+            <div class="phone-button-content">
+                <span>RING</span>
+                <span>08-64 90 200</span>
+                <span>BESTÄLL</span>
+            </div>
+        </a>
+    } else {
+        <a href="#contact" class="phone-button">
+            <div class="phone-button-content">
+                <span>Stängt</span>
+                <span>Öppet: 10-22</span>
+                <span>Välkomen åter!</span>
+            </div>
+        </a>
+    }
+
+
+    <footer class="border-top footer text-muted footer-style">
+        <div class="container">
+            &copy; 2023 - Pizzeria - <a asp-area="" asp-page="/Privacy">Privacy</a>
+        </div>
+    </footer>
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    <script>
+   
+
+        $(window).on('resize', function () {
+            var windowWidth = $(window).width();
+            if (windowWidth < 559) { // 768 is the Bootstrap default breakpoint for small screens, but 559 is used here for dumb reasons....
+                $('.dropdown-menu').addClass('show');
+            } else {
+                $('.dropdown-menu').removeClass('show');
+            }
+        });
+    </script>
+
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>
